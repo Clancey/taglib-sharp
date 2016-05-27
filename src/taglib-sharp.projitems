@@ -247,6 +247,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)TagLib\Xmp\XmpTag.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TagLib\Dsf\File.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TagLib\Dsf\StreamHeader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TagLib\Ogg\Codecs\Opus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)TagLib\TagLib.sources" />
