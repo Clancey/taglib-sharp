@@ -1,17 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6B143A39-C7B2-4743-9917-92262C60E9A6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>TagLib</RootNamespace>
-    <ApplicationIcon>.</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
     <AssemblyName>taglib-sharp</AssemblyName>
     <ReleaseVersion>2.0.4.0</ReleaseVersion>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -23,10 +24,6 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <AssemblyOriginatorKeyFile>..\taglib-sharp.snk</AssemblyOriginatorKeyFile>
-    <Execution>
-      <Execution clr-version="Net_2_0" />
-    </Execution>
-    <DefineConstants>HAVE_SHARPZIPLIB</DefineConstants>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -37,9 +34,6 @@
     <WarningLevel>4</WarningLevel>
     <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
-    <Execution>
-      <Execution clr-version="Net_2_0" />
-    </Execution>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -87,6 +81,8 @@
     <Compile Include="TagLib\Asf\UnknownObject.cs" />
     <Compile Include="TagLib\Audible\File.cs" />
     <Compile Include="TagLib\Audible\Tag.cs" />
+	<Compile Include="TagLib\Dsf\File.cs" />
+	<Compile Include="TagLib\Dsf\StreamHeader.cs" />
     <Compile Include="TagLib\Flac\Block.cs" />
     <Compile Include="TagLib\Flac\BlockHeader.cs" />
     <Compile Include="TagLib\Flac\File.cs" />
@@ -245,6 +241,7 @@
     <Compile Include="TagLib\Ogg\XiphComment.cs" />
     <Compile Include="TagLib\Ogg\Codecs\Theora.cs" />
     <Compile Include="TagLib\Ogg\Codecs\Vorbis.cs" />
+    <Compile Include="TagLib\Ogg\Codecs\Opus.cs" />
     <Compile Include="TagLib\Png\Codec.cs" />
     <Compile Include="TagLib\Png\File.cs" />
     <Compile Include="TagLib\Png\PngTag.cs" />
@@ -281,7 +278,6 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="ICSharpCode.SharpZipLib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

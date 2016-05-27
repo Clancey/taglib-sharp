@@ -14,6 +14,7 @@ ASSEMBLY_CSFILES =  \
 	fixtures/TagLib.Tests.FileFormats/AiffFormatTest.cs \
 	fixtures/TagLib.Tests.FileFormats/AsfFormatTest.cs \
 	fixtures/TagLib.Tests.FileFormats/AviFormatTest.cs \
+	fixtures/TagLib.Tests.FileFormats/DsfFormatTest.cs \
 	fixtures/TagLib.Tests.FileFormats/FlacFormatTest.cs \
 	fixtures/TagLib.Tests.FileFormats/Id3BothFormatTest.cs \
 	fixtures/TagLib.Tests.FileFormats/Id3V1FormatTest.cs \
@@ -25,6 +26,7 @@ ASSEMBLY_CSFILES =  \
 	fixtures/TagLib.Tests.FileFormats/M4vFormatTest.cs \
 	fixtures/TagLib.Tests.FileFormats/MpcFormatTest.cs \
 	fixtures/TagLib.Tests.FileFormats/OggFormatTest.cs \
+	fixtures/TagLib.Tests.FileFormats/OpusFormatTest.cs \
 	fixtures/TagLib.Tests.FileFormats/StandardTests.cs \
 	fixtures/TagLib.Tests.Images/AddImageMetadataTests.cs \
 	fixtures/TagLib.Tests.Images/BadCommentMarkerTest.cs \
@@ -118,13 +120,9 @@ RAW_CSFILES = \
 	fixtures/TagLib.Tests.Images/RawLeicaDigilux2Test.cs \
 	fixtures/TagLib.Tests.Images/Rw2PanasonicG1Test.cs
 
-if HAVE_SHARPZIPLIB
-    SHARPZIPLIB_FLAGS = -r:ICSharpCode.SharpZipLib.dll -define:HAVE_SHARPZIPLIB
-endif
-
 
 $(ASSEMBLY): $(ASSEMBLY_CSFILES)
-	$(MCS) $(MCS_FLAGS) $(NUNIT_FLAGS) $(GNOME_SHARP_LIBS) $(SHARPZIPLIB_FLAGS) -out:$@ -target:library -r:$(top_builddir)/src/taglib-sharp.dll $(ASSEMBLY_CSFILES)
+	$(MCS) $(MCS_FLAGS) $(NUNIT_FLAGS) $(GNOME_SHARP_LIBS) -out:$@ -target:library -r:$(top_builddir)/src/taglib-sharp.dll $(ASSEMBLY_CSFILES)
 
 TAGLIB_ASM = ../src/taglib-sharp.dll
 

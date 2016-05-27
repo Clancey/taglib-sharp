@@ -24,7 +24,7 @@ DISTCHECK_CONFIGURE_FLAGS="--disable-docs"
 AC_SUBST(DISTCHECK_CONFIGURE_FLAGS)
 
 dnl Check for Mono
-AC_PATH_PROG(MCS, gmcs)
+AC_PATH_PROG(MCS, mcs)
 if test x$MCS = x; then
 	AC_MSG_ERROR(You need mcs)
 fi
@@ -83,18 +83,6 @@ else
 	AC_MSG_NOTICE([not building Banshee API documentation])
 	AM_CONDITIONAL(BUILD_DOCS, false)
 fi
-
-# checking for ICSharpCode.SharpZipLib.dll
-AC_MSG_CHECKING([Mono GAC for ICSharpCode.SharpZipLib.dll])
-if $GACUTIL -l | $GREP -q ICSharpCode.SharpZipLib; \
-	then \
-	AC_MSG_RESULT([found])
-	AM_CONDITIONAL(HAVE_SHARPZIPLIB, true)
-else
-	AC_MSG_RESULT([not found])
-	AM_CONDITIONAL(HAVE_SHARPZIPLIB, false)
-fi
-
 
 PKG_CHECK_MODULES(GNOME_SHARP, gnome-sharp-2.0, have_gnome_sharp=yes, have_gnome_sharp=no)
 if test "x$have_gnome_sharp" = "xyes"; then
